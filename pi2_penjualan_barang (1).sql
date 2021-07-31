@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Jul 2021 pada 17.36
+-- Waktu pembuatan: 31 Jul 2021 pada 18.43
 -- Versi server: 10.4.16-MariaDB
 -- Versi PHP: 7.4.12
 
@@ -40,10 +40,9 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`barang_id`, `nama_barang`, `harga_barang`, `stok`, `keterangan`) VALUES
-(7, 'Oky Jelly Drink', 22000, 5, 'Barang dijamin segel'),
-(8, 'Teh Gelas', 24500, 8, 'Stok baru dari pabrik'),
-(9, 'Le Minerall', 32000, 7, 'Barang langsung dari pabrik'),
-(10, 'Indomie Goreng', 18000, 3, 'Bukan Indomie rebus');
+(11, 'ASUS ROG Zephyrus G14 GA401', 14899000, 4, 'Keadaan Laptop Baru'),
+(12, 'HP PAVILION GAMING 15 DK1064TX', 15199000, 2, 'Dapat bonus 1 paket perlengkapan gaming'),
+(13, 'Lenovo Legion Y530-15ICH-72ID Black', 15599000, 3, 'Dapat bonus mouse+keyboard gaming');
 
 -- --------------------------------------------------------
 
@@ -63,10 +62,9 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`pelanggan_id`, `nama_pelanggan`, `no_tlp`, `alamat`) VALUES
-(5, 'Fikri Ananda', '0896604578952', 'Perumahan Megu Cilik , Cirebon'),
-(6, 'Yuli Agustini', '0874558795', 'Plered, Cirebon\r\n'),
-(7, 'Valentina Rossadi', '08856998745', 'Trusmi, Cirebon\r\n'),
-(8, 'Marko Marteen', '085521447893', 'Kesambi, Cirebon');
+(9, 'Fikri Ananda', '08822569878', 'Perumahan Megu Cilik, Weru, Cirebon'),
+(10, 'Dean Siska', '088745621478', 'Jalan Raya Plered, Cirebon'),
+(11, 'Gustami', '08874589658', 'Jalan Raya Pilang, Cirebon');
 
 -- --------------------------------------------------------
 
@@ -87,10 +85,9 @@ CREATE TABLE `penjualan` (
 --
 
 INSERT INTO `penjualan` (`penjualan_id`, `tgl_penjualan`, `pelanggan_id`, `keterangan`, `total`) VALUES
-(1627486067, '2021-07-28', 5, 'Membeli Oky Jelly Drink 2 dus', 44000),
-(1627486099, '2021-07-28', 6, 'Membeli Le Minerale 3 dus', 91200),
-(1627486151, '2021-07-28', 7, 'Membeli Indomie goreng 4 dus', 72000),
-(1627486197, '2021-07-28', 8, 'Membeli teh gelas 6 dus', 164640);
+(1627749571, '2021-07-31', 9, 'Membeli 1 unit HP PAVILION GAMING 15 DK1064TX', 43466170),
+(1627749713, '2021-07-31', 10, 'Membeli 2 unit Lenovo Legion Y530-15ICH-72ID Black', 73660150),
+(1627749751, '2021-07-31', 11, 'pelanggan setia toko laptopku', 31198000);
 
 -- --------------------------------------------------------
 
@@ -112,10 +109,12 @@ CREATE TABLE `penjualan_detail` (
 --
 
 INSERT INTO `penjualan_detail` (`penjualan_detail_id`, `penjualan_id`, `barang_id`, `harga_total`, `jumlah`, `diskon`) VALUES
-(9, 1627486067, 7, 44000, 2, 0),
-(10, 1627486099, 9, 91200, 3, 5),
-(11, 1627486151, 10, 72000, 4, 0),
-(12, 1627486197, 8, 164640, 7, 4);
+(13, 1627749571, 11, 14452030, 1, 3),
+(14, 1627749571, 11, 29798000, 2, 0),
+(15, 1627749571, 13, 29014140, 2, 7),
+(16, 1627749713, 13, 31198000, 2, 0),
+(17, 1627749713, 11, 42462150, 3, 5),
+(18, 1627749751, 13, 31198000, 2, 0);
 
 --
 -- Indexes for dumped tables
@@ -153,25 +152,25 @@ ALTER TABLE `penjualan_detail`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `barang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `barang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `pelanggan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `pelanggan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `penjualan`
 --
 ALTER TABLE `penjualan`
-  MODIFY `penjualan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1627486198;
+  MODIFY `penjualan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1627749752;
 
 --
 -- AUTO_INCREMENT untuk tabel `penjualan_detail`
 --
 ALTER TABLE `penjualan_detail`
-  MODIFY `penjualan_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `penjualan_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
